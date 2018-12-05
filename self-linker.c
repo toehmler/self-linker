@@ -10,7 +10,7 @@
 #include <dlfcn.h>
 #include <gnu/lib-names.h>
 
-#define PUT_GOT_OFFSET = 24 // Offset of puts() within GOT 
+
 
 extern void *_GLOBAL_OFFSET_TABLE_;
 
@@ -40,7 +40,8 @@ main(int argc, char *argv[])
     }
 
     // Update GOT entry with that returned by dlsym
-    void *got = (&_GLOBAL_OFFSET_TABLE_) + (3 / sizeof(void *));
+    // Offset of 3 found my examining GDB output without lines 44 / 45
+    void *got = (&_GLOBAL_OFFSET_TABLE_) + 3;
     *(void **)got = func_ptr;
 
     // Function call to demonstrate behavior
