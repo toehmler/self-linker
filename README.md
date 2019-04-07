@@ -1,16 +1,7 @@
-# self-linker | Assignment 4
+# Self-linker
 
 ## Authors
 Trey Oehmler 
-CS315 Fall 2018
-
-## Known bugs
-
-## References
-
-[Global Offset Tables](http://bottomupcs.sourceforge.net/csbu/x3824.htm)
-
-[GOT and PLT for pwning](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html)
 
 ## Annotated GDB session
 
@@ -66,6 +57,14 @@ End of assembler dump.
 (gdb) x/gx 0x555555558018
 0x555555558018 <puts@got.plt>:	0x00007ffff7e63a40
 ```
+
+
+
+## References
+
+[Global Offset Tables](http://bottomupcs.sourceforge.net/csbu/x3824.htm)
+
+[GOT and PLT for pwning](https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html)
 
 
 

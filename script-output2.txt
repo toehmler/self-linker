@@ -1,0 +1,46 @@
+Script started on 2018-12-05 16:55:58-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+]0;trey@cs315:/mnt/cs315/assignment4[trey@cs315 assignment4]$ gsb [K[K[Kdb self0l[K[K-linker
+GNU gdb (GDB) 8.2
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from self-linker...done.
+(gdb) b 48
+Breakpoint 1 at 0x1244: file self-linker.c, line 48.
+(gdb) run
+Starting program: /mnt/cs315/assignment4/self-linker 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe9b8) at self-linker.c:48
+48	    puts("hello");
+(gdb) disas[K[K[K[K[Kxg[K/gx 0x[K[K[K[K[K[K[Ksi
+0x000055555555524b	48	    puts("hello");
+(gdb) 
+0x0000555555555030 in puts@plt ()
+(gdb) disas
+Dump of assembler code for function puts@plt:
+=> 0x0000555555555030 <+0>:	jmpq   *0x2fe2(%rip)        # 0x555555558018 <puts@got.plt>
+   0x0000555555555036 <+6>:	pushq  $0x0
+   0x000055555555503b <+11>:	jmpq   0x555555555020
+End of assembler dump.
+(gdb) x/gx 0x555555558018
+0x555555558018 <puts@got.plt>:	0x00007ffff7e63a40
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 1674] will be killed.
+
+Quit anyway? (y or n) y
+]0;trey@cs315:/mnt/cs315/assignment4[trey@cs315 assignment4]$ exit
+
+Script done on 2018-12-05 16:56:44-05:00 [COMMAND_EXIT_CODE="0"]
